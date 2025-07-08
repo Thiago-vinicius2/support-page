@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    padding-top: 70px;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    background-color: rgb(197, 205, 232);
+}
+
+.navbar {
+    background: linear-gradient(to left, #0D1B2A, #415a77);
+    height: 70px;
+}
+
+.text-name-empresa i,
+.text-name-empresa span {
+    color: #e0e1dd;
+    font-size: 28pt;
+    align-items: center;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.btn-voltar {
+    margin-top: 15px;
+    position: absolute;
+    left: 20px;
+    width: 45px;
+    height: 40px;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar:hover {
+    background-color: #8296ab;
+    outline: none;
+}
+
+.btn-voltar i {
+    color: #0D1B2A;
+}
+
+.search {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo {
+    font-size: 45px;
+    font-weight: 790;
+    color: #0D1B2A;
+    text-align: center;
+}
+
+.input-group {
+    height: 50px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.filtro {
+    background-color: #4e749d;
+    font-weight: bold;
+    color: #e0e1dd;
+}
+
+.filtro::placeholder {
+  color: #e0e1dd;
+}
+
+.filtro:focus {
+  background-color: #375c83;
+  color: #e0e1dd;
+  outline: none;
+  box-shadow: 0 0 0 0;
+}
+
+.input-group-text {
+  background-color: #1c3c5e;
+  border: none; 
+}
+
+.input-group-text i {
+  font-size: 17px;
+  color: #e0e1dd;
+}
+
+.table-container {
+    max-height: 400px;
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+    overflow-y: auto;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.table-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #224266;
+    border-radius: 5px;
+    border: 1px solid #e0e1dd;
+}
+
+.row-table-thead th {
+    background-color: #0D1B2A;
+    color: #E0E1DD;
+    height: 50px;
+    text-align: center;
+    font-size: 13pt;
+    position: sticky;
+    top: 0;
+}
+
+.row-table-tbody td {
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #dcdce2;
+}
+
+.table td {
+    border: 1px solid #2b2b2b;
+}
+
+.btn-edit {
+    width: 100px;
+    height: 40px;
+    background-color: #3b5c7d;
+    color: #e0e1dd;
+}
+
+.btn-edit:hover {
+    background-color: #65b5ff;
+    color: #e0e1dd;
+    transition: 0.6s;
+}

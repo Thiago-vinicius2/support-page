@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0D1B2A;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 1;
+}
+
+.left-login,
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login img {
+  width: 30vw;
+  height: 70vh;
+}
+
+.card-login {
+  color: #E0E1DD;
+  width: 60%;
+  height: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #233c57;
+  box-shadow: 0px 10px 40px #2a4e74;
+  border-radius: 20px;
+  padding: 30px 35px;
+}
+
+.card-login h1 {
+  margin: 10px 0 30px;
+  font-size: 35pt;
+  font-weight: bold;
+}
+
+.textfild {
+  width: 90%;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.textfild label {
+  margin-bottom: 5px;
+}
+
+.textfild input {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #3e5e7f;
+  color: #E0E1DD;
+  font-size: 12pt;
+}
+
+.textfild input::placeholder {
+  color: #E0E1DD;
+}
+
+.btn-login {
+  width: 60%;
+  margin-top: 40px;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px 0;
+  border: none;
+  border-radius: 10px;
+  background: #242c63;
+  color: #E0E1DD;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+.btn:hover {
+  background: #10194d;
+}
+
+p {
+  margin-top: 40px;
+  text-align: center;
+}
+
+a {
+  color: #3f98e1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.meu-popup {
+  background: #29416f;
+  color: #E0E1DD;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.meu-titulo {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.meu-texto {
+  font-size: 20px;
+}
+
+.meu-botao {
+  font-weight: bold;
+  background: #091558;
+  border-radius: 10px;
+}
+
+.meu-botao:hover {
+  background: #0b1432;
+}
+
+.swal2-icon {
+  font-size: 20px !important;
+  color: #E0E1DD !important;
+  background-color: #0D1B2A;
+  border: none;
+}

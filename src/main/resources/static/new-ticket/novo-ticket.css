@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    padding-top: 70px;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+    background-color: rgb(197, 205, 232);
+}
+
+.navbar {
+    background: linear-gradient(to left, #0D1B2A, #415a77);
+    height: 70px;
+}
+
+.text-name-empresa i,
+.text-name-empresa span {
+    color: #e0e1dd;
+    font-size: 28pt;
+    align-items: center;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.btn-voltar {
+    margin-top: 15px;
+    position: absolute;
+    left: 20px;
+    width: 45px;
+    height: 40px;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-voltar:hover {
+    background-color: #8296ab;
+    outline: none;
+}
+
+.btn-voltar i {
+    color: #0D1B2A;
+}
+
+.title-page {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulo {
+    font-size: 45px;
+    font-weight: 790;
+    color: #0D1B2A;
+    text-align: center;
+}
+
+.form-container {
+    height: 390px;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #1a2143;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.form-label {
+    font-weight: bold;
+    color: #fff;
+    font-size: 15pt;
+    padding: 5px;
+}
+
+.form-control:focus {
+    border-color: #415a77;
+    box-shadow: 0 0 0 0.2rem rgba(65, 90, 119, 0.25);
+}
+
+.title,
+.desc {
+    background-color: #58708a;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+}
+
+.title::placeholder,
+.desc::placeholder {
+  color: #e5ead9f1;
+}
+
+.title:focus,
+.desc:focus {
+  background-color: #53759b;
+  color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 0;
+}
+
+#form-desc {
+    max-height: 133px;
+    resize: none;
+}
+
+.btn-new-ticket {
+    width: 90px;
+    height: 45px;
+    background-color: #58708a;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.btn-new-ticket:hover {
+    background-color: #315985;
+    color: #fff;
+    outline: none;
+}
+
+.meu-popup {
+    background: #29416f;
+    color: #E0E1DD;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.meu-titulo {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.meu-texto {
+    font-size: 20px;
+}
+
+.meu-botao-ok {
+    font-weight: bold;
+    background: #152687;
+    border-radius: 10px;
+}
+
+.meu-botao-ok:hover {
+    background: #3380c8;
+}
+
+.meu-botao-cancel {
+    font-weight: bold;
+    background: #5366d2;
+    border-radius: 10px;
+}
+
+.meu-botao-cancel:hover {
+    background: #3380c8;
+}
+
+.swal2-icon {
+    font-size: 20px !important;
+    color: #E0E1DD !important;
+    background-color: #0D1B2A;
+    border: none;
+}
