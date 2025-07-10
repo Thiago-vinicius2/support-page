@@ -75,7 +75,6 @@ function configurarEnvioMensagem() {
     const form = document.getElementById("chat-form");
     const inputMensagem = document.getElementById("chat-input");
 
-
     form.addEventListener("submit", (event) => {
         event.preventDefault();
         const textoDigitado = inputMensagem.value.trim();
