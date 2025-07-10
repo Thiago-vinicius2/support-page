@@ -6,6 +6,7 @@ public record ChatMessageDto(
     Long ticketId,
     String senderType,
     String senderName,
+    String senderEmail,
     String content,
     LocalDateTime timestamp) {
 }

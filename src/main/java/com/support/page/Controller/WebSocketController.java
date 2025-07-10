@@ -2,14 +2,14 @@ package com.support.page.Controller;
 
 import com.support.page.Dto.Message.ChatMessageDto;
 import com.support.page.Dto.Message.CreateMessageDto;
+import com.support.page.Security.TokenService;
 import com.support.page.Service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Controller;
-
-import java.security.Principal;
-
 
 @Controller
 public class WebSocketController {
@@ -20,17 +20,27 @@ public class WebSocketController {
     @Autowired
     private MessageService messageService;
 
-    @MessageMapping("/ticket/send")
-    public void sendMessage(CreateMessageDto dto, Principal principal) {
-        System.out.println("Principal recebido: " + principal);
+    @Autowired
+    private TokenService tokenService;
 
-        if (principal == null) {
-            throw new RuntimeException("Usuário não autenticado");
+    @MessageMapping("/ticket/send")
+    public void sendMessage(CreateMessageDto dto, Message<?> message) {
+        StompHeaderAccessor accessor = StompHeaderAccessor.wrap(message);
+        String token = accessor.getFirstNativeHeader("Authorization");
+
+        if (token == null || !token.startsWith("Bearer ")) {
+            throw new RuntimeException("Token ausente ou inválido no header");
         }
 
-        String email = principal.getName();
+        token = token.replace("Bearer ", "");
+        System.out.println("Token recebido no WebSocket: " + token);
+        String email = tokenService.validateTokenAndGetSubject(token);
+
+        if (email == null) {
+            throw new RuntimeException("Token inválido");
+        }
+
         ChatMessageDto savedMessage = messageService.saveMessage(dto, email);
-        String destination = "/topic/ticket/" + dto.ticketId();
-        messagingTemplate.convertAndSend(destination, savedMessage);
+        messagingTemplate.convertAndSend("/topic/ticket/" + dto.ticketId(), savedMessage);
     }
 }

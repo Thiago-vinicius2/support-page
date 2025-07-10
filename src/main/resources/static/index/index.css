@@ -7,7 +7,7 @@ body {
 }
 
 .navbar {
-    background: linear-gradient(to left, #0D1B2A, #415a77);
+    background: linear-gradient(to left, #0D1B2A, #1d3d6d);
     height: 70px;
 }
 
@@ -39,7 +39,7 @@ body {
 .sidebar-item {
     background-color: #0D1B2A;
     margin-top: 55px;
-    width: 250px;
+    width: 270px;
     height: 100vh;
     padding: 20px;
 }
@@ -78,14 +78,64 @@ body {
     border-radius: 5px;
 }
 
-.index-content {
-    background-color: rgb(197, 205, 232);
+.main-content {
+    background-color: #8790ac;
     margin-top: 70px;
-    margin-left: 250px;
+    margin-left: 270px;
     padding: 20px;
     height: calc(100vh - 60px);
     overflow-y: auto;
     text-align: center;
+}
+
+.card-tickets{
+    display: flex;
+    justify-content: center;
+    gap: 140px;
+    padding: 10px;
+    margin: 35px 15px;
+    height: 150px;
+    font-size: 18pt;
+    color: #e0e1dd;
+}
+
+.card-ticket-pendentes{
+    background: linear-gradient(to right, #0D1B2A, #0a2547);
+    height: 120px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-ticket-assumidos{
+    background: linear-gradient(to right, #0D1B2A, #0a2547);
+    height: 120px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-ticket-encerrados{
+    background: linear-gradient(to right, #0D1B2A, #0a2547);
+    height: 120px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .meu-popup {

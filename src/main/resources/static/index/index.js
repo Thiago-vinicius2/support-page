@@ -10,7 +10,6 @@ document.getElementById('btn-logout').addEventListener('click', function () {
         customClass: {
             popup: "meu-popup",
             title: "meu-titulo",
-            htmlContainer: "meu-texto",
             confirmButton: "meu-botao-ok",
             cancelButton: "meu-botao-cancel"
         }

@@ -8,7 +8,6 @@ import com.support.page.Entity.User.User;
 import com.support.page.Repository.MessageRepository;
 import com.support.page.Repository.TicketRepository;
 import com.support.page.Repository.UserRepository;
-import com.support.page.Security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -29,25 +28,18 @@ public class MessageService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private TokenService tokenService;
-
     public ChatMessageDto toDto(Message message) {
         return new ChatMessageDto(
                 message.getTicket().getId(),
                 message.getRemetente().getRole().name(),
                 message.getRemetente().getNome(),
+                message.getRemetente().getEmail(),
                 message.getConteudo(),
                 message.getDataHora()
         );
     }
 
-    public ChatMessageDto saveMessage(CreateMessageDto dto, String token) {
-
-        String email = tokenService.validateTokenAndGetSubject(token);
-        if (email == null) {
-            throw new RuntimeException("Token inválido ou usuário não autenticado");
-        }
+    public ChatMessageDto saveMessage(CreateMessageDto dto, String email) {
 
         Ticket ticket = ticketRepository.findById(dto.ticketId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ticket não encontrado"));
@@ -67,6 +59,7 @@ public class MessageService {
                 ticket.getId(),
                 remetente.getRole().name(),
                 remetente.getNome(),
+                remetente.getEmail(),
                 message.getConteudo(),
                 message.getDataHora());
     }

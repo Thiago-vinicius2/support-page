@@ -7,6 +7,7 @@ import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.messaging.simp.stomp.StompCommand;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -27,14 +28,19 @@ public class WebSocketAuthInterceptor implements ChannelInterceptor {
 
         if (StompCommand.SEND.equals(accessor.getCommand()) || StompCommand.CONNECT.equals(accessor.getCommand())) {
             List<String> authHeaders = accessor.getNativeHeader("Authorization");
+
             if (authHeaders != null && !authHeaders.isEmpty()) {
                 String token = authHeaders.get(0).replace("Bearer ", "");
                 String email = tokenService.validateTokenAndGetSubject(token);
                 String role = tokenService.getRoleFromToken(token);
+
                 if (email != null) {
                     var authorities = List.of(new SimpleGrantedAuthority(role));
                     var auth = new UsernamePasswordAuthenticationToken(email, null, authorities);
+
                     accessor.setUser(auth);
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                    System.out.println("Usuário autenticado: " + email);
                 }
             }
         }

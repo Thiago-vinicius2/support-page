@@ -16,13 +16,22 @@ export function carregarMensagens(ticketId) {
     .catch(error => console.error("Erro ao carregar mensagens:", error));
 }
 
-export function displayMessage(msg){
-    const chatBox = document.getElementById("chat-box");
+export function displayMessage(msg) {
+  const chatBox = document.getElementById("chat-box");
 
-    const div = document.createElement("div");
-    div.classList.add(msg.senderType === 'TÉCNICO' ? 'message-tecnico' : 'message-cliente');
-    div.innerHTML = `<strong>${msg.senderName}:</strong> ${msg.content} <br><small>${new Date(msg.timestamp).toLocaleTimeString()}</small>`;
+  const token = localStorage.getItem("token");
+  const decoded = jwt_decode(token);
+  const email = decoded.sub;  
 
-    chatBox.appendChild(div);
-    chatBox.scrollTop = chatBox.scrollHeight;
+  const div = document.createElement("div");
+  if (msg.senderEmail === email) {
+    div.classList.add('message-sent');
+  } else {
+    div.classList.add('message-received');
+  }
+
+  div.innerHTML = `<strong>${msg.senderName}:</strong> <br>${msg.content} <br><small">${new Date(msg.timestamp).toLocaleTimeString()}</small>`;
+
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
 }

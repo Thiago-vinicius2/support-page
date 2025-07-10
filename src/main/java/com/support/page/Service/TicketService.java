@@ -1,9 +1,6 @@
 package com.support.page.Service;
 
-import com.support.page.Dto.Ticket.AssumeTicketDto;
-import com.support.page.Dto.Ticket.CloseTicketDto;
-import com.support.page.Dto.Ticket.CreateTicketDto;
-import com.support.page.Dto.Ticket.TicketPendenteDto;
+import com.support.page.Dto.Ticket.*;
 import com.support.page.Entity.Ticket.StatusTicket;
 import com.support.page.Entity.Ticket.Ticket;
 import com.support.page.Entity.User.User;
@@ -29,18 +26,18 @@ public class TicketService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<TicketPendenteDto> allTicket(){
+    public List<AllTicketDto> allTicket(){
         List<Ticket> tickets = ticketRepository.findAll();
 
         return tickets.stream()
-                .map(ticket -> new TicketPendenteDto(
+                .map(ticket -> new AllTicketDto(
                         ticket.getId(),
                         ticket.getTitulo(),
                         ticket.getDescricao(),
                         ticket.getDataAbertura(),
-                        ticket.getUserSolicitante().getNome(),
-                        ticket.getUserResponsavel().getNome(),
-                        ticket.getUserEncerramento().getNome(),
+                        ticket.getUserSolicitante() != null ? ticket.getUserSolicitante().getNome() : null,
+                        ticket.getUserResponsavel() != null ? ticket.getUserResponsavel().getNome() : null,
+                        ticket.getUserEncerramento() != null ? ticket.getUserEncerramento().getNome() : null,
                         ticket.getStatusTicket()))
                 .toList();
     }
@@ -109,5 +106,25 @@ public class TicketService {
         ticketRepository.save(ticket);
 
         return ResponseEntity.ok("Ticket encerrado com sucesso");
+    }
+
+    public ResponseEntity<InfoTicketDto> infoTicket(Long id) {
+        System.out.println("Buscando ticket com id: " + id);
+
+        Ticket ticket = ticketRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Ticket não encontrado"));
+
+        System.out.println("Ticket encontrado: " + ticket.getTitulo());
+
+        String solicitante = ticket.getUserSolicitante().getNome();
+
+        InfoTicketDto infoTicketDto = new InfoTicketDto(
+                ticket.getId(),
+                solicitante,
+                ticket.getTitulo(),
+                ticket.getDescricao(),
+                ticket.getDataAbertura()
+        );
+        return ResponseEntity.ok(infoTicketDto);
     }
 }

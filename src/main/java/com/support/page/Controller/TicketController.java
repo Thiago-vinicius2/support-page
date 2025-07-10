@@ -1,9 +1,6 @@
 package com.support.page.Controller;
 
-import com.support.page.Dto.Ticket.AssumeTicketDto;
-import com.support.page.Dto.Ticket.CloseTicketDto;
-import com.support.page.Dto.Ticket.CreateTicketDto;
-import com.support.page.Dto.Ticket.TicketPendenteDto;
+import com.support.page.Dto.Ticket.*;
 import com.support.page.Service.TicketService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +17,13 @@ public class TicketController {
     private TicketService ticketService;
 
     @GetMapping("/all-ticket")
-    public List<TicketPendenteDto> allTicket(){
+    public List<AllTicketDto> allTicket(){
         return ticketService.allTicket();
+    }
+
+    @GetMapping("/info-ticket/{id}")
+    public ResponseEntity<InfoTicketDto> infoTicketDto(@PathVariable Long id){
+        return ticketService.infoTicket(id);
     }
 
     @PostMapping("/create-ticket")
@@ -38,4 +40,6 @@ public class TicketController {
     public ResponseEntity<String> closeTicket(@RequestBody CloseTicketDto dto){
         return ticketService.closeTicket(dto);
     }
+
+
 }

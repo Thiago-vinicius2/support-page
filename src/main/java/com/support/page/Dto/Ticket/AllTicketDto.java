@@ -4,7 +4,7 @@ import com.support.page.Entity.Ticket.StatusTicket;
 
 import java.time.LocalDate;
 
-public record TicketPendenteDto(
+public record AllTicketDto(
         Long id,
         String titulo,
         String descricao,

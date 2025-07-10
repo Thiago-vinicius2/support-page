@@ -47,11 +47,10 @@
 
     <div class="chat-container">
         <div class="chat-main" id="chat-main">
-            <section class="chat-message" id="chat-box"></section>
-
-            <div>
-                
+            <div class="chat-icon" id="chat-icon">    
+                <i class="bi bi-chat-text"></i>
             </div>
+            <section class="chat-message" id="chat-box"></section>
 
             <form class="chat-form" id="chat-form">
                 <input type="text" class="chat-input" id="chat-input" placeholder=" Digite sua mensagem..." />
@@ -61,8 +60,16 @@
             </form>
         </div>
 
-        <div class="chat-info">
-
+        <div class="chat-info" id="chat-info">
+            <div class="icon">
+                <i class="bi bi-person-circle"></i>
+            </div>
+            <div class="info-ticket">
+                <div class="ticket-solicitante" id="ticket-solicitante"></div>
+                <div class="ticket-titulo" id="ticket-titulo"></div>
+                <div class="ticket-descricao" id="ticket-descricao"></div>
+                <div class="ticket-abertura" id="ticket-abertura"></div>
+            </div>
         </div>
     </div>
 
@@ -71,7 +78,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
 
     <script type="module" src="chat.js"></script>
-    <script type="module" src="chat-list.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
 </body>
 
 </html>

@@ -24,14 +24,15 @@ fetch(url, {
             const linha = document.createElement("tr");
             linha.setAttribute("data-id", ticket.id);
 
-            if (ticket.statusTicket === "ASSUMIDO") {
+            if (ticket.statusTicket === "ENCERRADO") {
                 linha.innerHTML = `
                     <td> ${index + 1} </td>
                     <td> ${ticket.titulo} </td>
                     <td> ${ticket.descricao} </td>
                     <td> ${ticket.dataAbertura} </td>
                     <td> ${ticket.userSolicitante} </td>
-                    <td> ${ticket.userResponsavel} </td>`;
+                    <td> ${ticket.userResponsavel} </td>
+                    <td> ${ticket.userEncerramento} </td>`;
 
                 tabela.appendChild(linha);
             }

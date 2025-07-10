@@ -1,6 +1,7 @@
 package com.support.page.Entity.Ticket;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.support.page.Entity.Message.Message;
 import com.support.page.Entity.User.User;
 import jakarta.persistence.*;
@@ -34,15 +35,18 @@ public class Ticket {
     @Column(name = "descricao", nullable = false, columnDefinition = "TEXT")
     private String descricao;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull(message = "A data de abertura é obrigatória")
     @Column(name = "data_abertura", nullable = false)
     private LocalDate dataAbertura;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_encerramento")
-    private  LocalDate dataEncerramento;
+    private LocalDate dataEncerramento;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @Column(name = "data_assumido")
-    private  LocalDate dataAssumido;
+    private LocalDate dataAssumido;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "responsavel_id")

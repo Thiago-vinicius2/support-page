@@ -4,11 +4,11 @@ body {
     height: 100vh;
     overflow: hidden;
     font-family: "Inter", sans-serif;
-    background-color: rgb(197, 205, 232);
+    background-color: #8790ac;
 }
 
 .navbar {
-    background: linear-gradient(to left, #0D1B2A, #415a77);
+    background: linear-gradient(to left, #0D1B2A, #1d3d6d);
     height: 70px;
 }
 
@@ -36,7 +36,7 @@ body {
 }
 
 .btn-voltar:hover {
-    background-color: #8296ab;
+    background-color: #5f69a792;
     outline: none;
 }
 
@@ -71,6 +71,7 @@ body {
     background-color: #4e749d;
     font-weight: bold;
     color: #e0e1dd;
+    border: none;
 }
 
 .filtro::placeholder {
